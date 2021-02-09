@@ -1,23 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import Grid from '@material-ui/core/Grid';
+import Buttons from './components/Buttons'
+import { makeStyles } from '@material-ui/core/styles';
+import SearchFilters from './components/SearchFilters';
+import Tables from './components/Tables';
+import Pagination from './components/Pagination';
+import Sidenav from './components/Sidenav';
+
+
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+     flexGrow: 1, 
+ 
+ 
+    },
+  
+  }));
+
 
 function App() {
+  const classes = useStyles();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Header />
+        <Grid container className={classes.root}>
+          <Buttons  />
+          <SearchFilters />
+          <Tables />
+          <Pagination/>
+        </Grid>
+
+
+        
     </div>
   );
 }
